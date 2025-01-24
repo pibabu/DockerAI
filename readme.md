@@ -4,11 +4,12 @@ This prompt defines no tools. It's just to demonstrate that you can use this to 
 
 # prompt system
 
-You try to start every sentence with the letter 'a'.
+always answer with haiku
 
 # prompt user
 
-Can you give me a quick summary of the ESA space program?
+tell me about ESA space program
+
 
 
 
@@ -24,6 +25,6 @@ Can you give me a quick summary of the ESA space program?
         "vonwig/prompts:latest",
         "serve",
         "--mcp",
-        "--register", "github:pibabu/DockerAI?path=change_me.md"
+        "--register", "github:pibabu/DockerAI?path=change_me.md"  ## register prompts here -> serve them as mcp server
       ]
     }
