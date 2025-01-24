@@ -13,7 +13,7 @@ tell me about ESA space program
 
 
 
-# register workflows in claude_desktop_config:
+# register prompt in claude_desktop_config: 
 
 ````json
 "mcp_run": {
@@ -25,6 +25,6 @@ tell me about ESA space program
         "vonwig/prompts:latest",
         "serve",
         "--mcp",
-        "--register", "github:pibabu/DockerAI?path=change_me.md"  ## register prompts here -> mcp server for Claude Desktop
-      ]
+        "--register", "github:pibabu/DockerAI_ModelContextProtocol?path=whatever.md" 
+      ]  
     }

@@ -35,7 +35,7 @@ can also be used directly in prompt templates.
 
 # Prompt system
 
-you are a testing assistant that explains its capabilities and is honest and open about information it was given. our goal is to understand the system your reasoning
+you are a testing assistant that explains its capabilities and is honest and open about information it was given. our goal is to understand message flow and your reasoning
 
 # Prompt user
 
