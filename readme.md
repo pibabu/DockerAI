@@ -25,6 +25,6 @@ tell me about ESA space program
         "vonwig/prompts:latest",
         "serve",
         "--mcp",
-        "--register", "github:pibabu/DockerAI?path=change_me.md"  ## register prompts here -> serve them as mcp server
+        "--register", "github:pibabu/DockerAI?path=change_me.md"  ## register prompts here -> mcp server for Claude Desktop
       ]
     }

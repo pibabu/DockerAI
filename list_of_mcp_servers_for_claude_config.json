@@ -1,0 +1,28 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/name/Desktop"
+      ]
+    },
+    "puppeteer": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "--init", "-e", "DOCKER_CONTAINER=true", "mcp/puppeteer"]
+    },
+    "mcp_run": {
+      "command": "docker",
+      "args": [
+        "run", "--rm", "-i", "--pull", "always",
+        "-v", "/var/run/docker.sock:/var/run/docker.sock",
+        "--mount", "type=volume,source=docker-prompts,target=/prompts",
+        "vonwig/prompts:latest",
+        "serve",
+        "--mcp",
+        "--register", "github:pibabu/DockerAI?path=03_multi_tool.md"
+      ]
+    }
+  }   
+}

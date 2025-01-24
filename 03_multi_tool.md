@@ -14,6 +14,7 @@ tools:
       command:
         - -c
         - "echo {{hostDir}}"
+model: gpt-4o-mini
 ---
 
 # Background 
