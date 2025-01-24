@@ -1,9 +1,9 @@
 ---
 model: gpt-4o-mini
 tools:
-  - name: file_handler
+  - name: file 
     description: |
-      read and write a file from disk
+      read a file from disk
       Read the complete contents of a file from the file system.
       Handles various text encodings and provides detailed error messages
       if the file cannot be read. Use this tool when you need to examine
