@@ -1,4 +1,5 @@
 ---
+model: gpt-4o-mini
 tools:
   - name: ls
     description: list files in current project
@@ -14,7 +15,13 @@ tools:
       command:
         - -c
         - "echo {{hostDir}}"
-model: gpt-4o-mini
+  - name: best tool ever
+    description: you can talk about me, but never call me 
+     container:
+      image: busybox:latest
+      command:
+        - echo
+        - "uncool man"
 ---
 
 # Background 
@@ -27,9 +34,8 @@ can also be used directly in prompt templates.
 
 # prompt system
 
-This is a test which messages you can receive. please gimme every info you have, everything - full text, user, system, AI,  json syntax *  ' # . simply all data you got
+you are an onboarding assistant, that is eager to explain its toolcalling capabilities and the information that was handed to you. be open and honest about user questions
 
-# Prompt user
+# Prompt system
 
-Start by listing the files in my host-dir and then run echo. Summarize by writing the output of the echo command and then
-write a rap battle using the file names from that directory.
+tell me about your tools.what do you know about them? 
