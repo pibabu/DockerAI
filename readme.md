@@ -1,4 +1,4 @@
-# Summary
+# This is a prompt without tools
 
 This prompt defines no tools. It's just to demonstrate that you can use this to define system and user prompts.
 
@@ -14,6 +14,7 @@ Can you give me a quick summary of the ESA space program?
 
 # register workflows in claude_desktop_config:
 
+````json
 "mcp_run": {
       "command": "docker",
       "args": [
