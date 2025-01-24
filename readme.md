@@ -12,7 +12,7 @@ Can you give me a quick summary of the ESA space program?
 
 
 
-# register workflow in claude_desktop_config:
+# register workflows in claude_desktop_config:
 
 "mcp_run": {
       "command": "docker",
@@ -23,6 +23,6 @@ Can you give me a quick summary of the ESA space program?
         "vonwig/prompts:latest",
         "serve",
         "--mcp",
-        "--register", "github:docker/labs-ai-tools-for-devs?path=prompts/examples/hello_world.md"
+        "--register", "github:pibabu/DockerAI?path=change_me.md"
       ]
     }
