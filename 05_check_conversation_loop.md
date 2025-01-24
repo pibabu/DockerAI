@@ -1,43 +1,40 @@
 ---
-model: gpt-4o-mini
 tools:
-  - name: file 
+  - name: handle_files
     description: |
-      read a file from disk
-      Read the complete contents of a file from the file system.
-      Handles various text encodings and provides detailed error messages
-      if the file cannot be read. Use this tool when you need to examine
-      the contents of a single file. Only works within allowed directories.
+      Perform file operations such as reading, writing, or listing files and directories.
+      Use the 'action' parameter to specify the operation:
+      - 'read': Reads the contents of a file.
+      - 'write': Overwrites or creates a new file with the specified content.
+      - 'list': Lists the contents of a directory.
     parameters:
       type: object
       properties:
+        action:
+          type: string
+          enum: [read, write, list]
+          description: The action to perform (read, write, or list).
         path:
           type: string
-    container:
-      image: vonwig/bash_alpine
-      entrypoint: cat
-      command:
-        - "{{path|safe}}"
-  - name: write_file
-    description: |
-      Create a new file or completely overwrite an existing file with new content.
-      dont escape newlines! no \n ! just answer with string
-    parameters:
-      type: object
-      properties:
-        path:
-          type: string
+          description: The path to the file or directory.
         content:
           type: string
+          description: The content to write to the file (required for 'write' action).
+    required:
+      - action
+      - path
     container:
       image: vonwig/bash_alpine
       command:
         - "-c"
-        - "echo {{content|safe}} >> {{path|safe}}"
-  - name: list
-    
+        - |
+          case {{action}} in
+          read) cat {{path|safe}} ;;
+          write) echo "{{content|safe}}" > {{path|safe}} ;;
+          list) ls -l {{path|safe}} ;;
+          esac
 ---
 
 # prompt user
 
-write blabla in example.txt...just one tool call! if it fauils, surrender
+list files in current dir..max 3 tool calls! if it fauils, surrender
