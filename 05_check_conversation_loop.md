@@ -33,7 +33,7 @@ tools:
 ---
 
 # prompt system
-use ./mails.txt
+use mails.txt
 
 # prompt user
 
