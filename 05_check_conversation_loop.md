@@ -31,7 +31,7 @@ tools:
         - "-c"
         - "echo {{content|safe}} >> {{path|safe}}"
 ---
-
+# only send user message to claude app
 # prompt user
 use mails.txt
 
@@ -43,7 +43,7 @@ this workflow:
 ai:check testfile and show
 wait for user
 (example) lets write mail to first one. ask whatup?
-ai: shows mail and waits for user feedback
+
 
 
 
