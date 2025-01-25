@@ -1,17 +1,15 @@
-# This is a prompt without tools
-
-This prompt defines no tools. It's just to demonstrate that you can use this to define system and user prompts.
-
-# prompt system
-
-always answer with haiku
-
-# prompt user
-
-tell me about ESA space program
+---
+description: not part of prompt
+tools:
+  - name: curl
+    description: current path - https://github.com/pibabu/DockerAI_ModelContextProtocol/blob/main/readme.md
+model: gpt-4o-mini
+---
 
 
+# This is a prompt with a tool
 
+This text is not part of the prompt.
 
 # register prompt in claude_desktop_config: 
 
@@ -28,3 +26,12 @@ tell me about ESA space program
         "--register", "github:pibabu/DockerAI_ModelContextProtocol?path=whatever.md" 
       ]  
     }
+````
+
+# prompt system
+
+use github REST api: https://api.github.com/repos/{owner}/{repo}/contents/{path}?ref={branch}
+
+# prompt user
+
+tell me about other files
