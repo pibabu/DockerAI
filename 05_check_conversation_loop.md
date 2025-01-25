@@ -32,7 +32,7 @@ tools:
         - "echo {{content|safe}} >> {{path|safe}}"
 ---
 
-# prompt system
+# prompt user
 use mails.txt
 
 
@@ -46,9 +46,6 @@ wait for user
 ai: shows mail and waits for user feedback
 
 
-# prompt user
-
-ok, hello
 
 
 
