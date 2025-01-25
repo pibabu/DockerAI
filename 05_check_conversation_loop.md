@@ -35,7 +35,7 @@ tools:
 # prompt system
 use mails.txt
 
-# prompt user
+
 
 rules:
 ask user for feedback. this conversation should have 5 turns
@@ -46,8 +46,9 @@ wait for user
 ai: shows mail and waits for user feedback
 
 
+# prompt user
 
-
+ok, hello
 
 
 
