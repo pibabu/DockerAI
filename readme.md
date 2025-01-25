@@ -1,5 +1,4 @@
 ---
-description: not part of prompt
 tools:
   - name: curl
     description: current path - https://github.com/pibabu/DockerAI_ModelContextProtocol/blob/main/readme.md
