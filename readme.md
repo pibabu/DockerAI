@@ -17,13 +17,22 @@ tools:
 
 
 # This is a prompt with a tool
-when tool gets called, it spins up container
+when the tool gets called, it spins up a container
 
 ## Dockerfile
 
+````DOCKERFILE
+FROM alpine:latest
+
+RUN apk add --no-cache wget
+
+ENTRYPOINT ["sh"]
+````
 
 
-## register prompt in claude_desktop_config: 
+
+
+## Register prompt in claude_desktop_config: 
 
 ````json
 "mcp_run": {
@@ -35,7 +44,7 @@ when tool gets called, it spins up container
         "vonwig/prompts:latest",
         "serve",
         "--mcp",
-        "--register", "github:pibabu/DockerAI_ModelContextProtocol?path=whatever.md" 
+        "--register", "github:pibabu/DockerAI_ModelContextProtocol?path=readme.md" 
       ]  
     }
 ````
