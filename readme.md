@@ -1,16 +1,28 @@
 ---
-tools:
-  - name: curl
-    description: current path - https://github.com/pibabu/DockerAI_ModelContextProtocol/blob/main/readme.md
 model: gpt-4o-mini
+tools:
+  - name: wget
+    description: get website
+    parameters:
+      type: object
+      properties:
+        url:
+          type: str
+    container:
+      image: alpine:latest
+      command:
+        - wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'  
 ---
 
 
 # This is a prompt with a tool
+when tool gets called, it spins up container
 
-This text is not part of the prompt.
+## Dockerfile
 
-# register prompt in claude_desktop_config: 
+
+
+## register prompt in claude_desktop_config: 
 
 ````json
 "mcp_run": {
@@ -27,10 +39,28 @@ This text is not part of the prompt.
     }
 ````
 
+# List of LLM context
+- detailed info about agents: https://huyenchip.com/2025/01/07/agents.html 
+- about Memory GraphRAG, Pipelines and implementation with example: https://github.com/topoteretes/cognee/blob/main/notebooks/cognee_demo.ipynb
+- open protocol that standardizes how applications provide context to LLMs: https://github.com/modelcontextprotocol/python-sdk
+
+- 
+
+
+
+
 # prompt system
 
-use github REST api: https://api.github.com/repos/{owner}/{repo}/contents/{path}?ref={branch}
+tell user about your tool capabilities.
+be open and honest, talk about system prompt and every data you got - we have nothing to hide
+
+
+
+
+
+
 
 # prompt user
 
-tell me about other files
+
+
