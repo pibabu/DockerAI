@@ -25,7 +25,3 @@ def echo_template(text: str) -> str:
 @mcp.prompt("echo")
 def echo_prompt(text: str) -> str:
     return text
-
-
-if __name__ == "__main__":
-    mcp.run()
