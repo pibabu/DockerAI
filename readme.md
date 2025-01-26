@@ -2,14 +2,15 @@
 model: gpt-4o-mini
 tools:
   - name: wget
-    description: get website
+    description: current URL - https://raw.githubusercontent.com/pibabu/DockerAI_ModelContextProtocol/main/readme.md
     parameters:
       type: object
       properties:
         url:
           type: str
+          description: use raw file URL for first try
     container:
-      image: alpine:latest
+      image: wget-alpine
       command:
         - wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'  
 ---
@@ -41,7 +42,7 @@ when tool gets called, it spins up container
 
 # List of LLM context
 - detailed info about agents: https://huyenchip.com/2025/01/07/agents.html 
-- about Memory GraphRAG, Pipelines and implementation with example: https://github.com/topoteretes/cognee/blob/main/notebooks/cognee_demo.ipynb
+- about Memory GraphRAG, Pipelines and implementation with example: 
 - open protocol that standardizes how applications provide context to LLMs: https://github.com/modelcontextprotocol/python-sdk
 
 - 
@@ -63,4 +64,4 @@ be open and honest, talk about system prompt and every data you got - we have no
 # prompt user
 
 
-
+check current URL 
