@@ -2,36 +2,35 @@
 model: gpt-4o-mini
 tools:
   - name: wget
-    description: call this URL - https://raw.githubusercontent.com/pibabu/DockerAI_ModelContextProtocol/main/readme.md
     parameters:
       type: object
       properties:
         url:
           type: str
-          description: use raw file URL for first try
+          description: use raw file U RL for first try
     container:
-      image: wget-alpine
+      image: wbitt/network-multitool
       command:
-        - wget -qO- https://raw.githubusercontent.com/pibabu/DockerAI_ModelContextProtocol/main/readme.md | sed 's/<[^>]*>//g'  
+        - "wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'"   
+  - name: bash
+    description: Run a bash script in the container
+    parameters:
+      type: object
+      properties:
+        command:
+          type: string
+          description: The command to send to bash
+    container: 
+        image: wbitt/network-multitool
+        command: 
+          - "bash"
+          - "-c"
+          - "{{command|safe}}"
+
 ---
 
 
-# This is a prompt with a tool
-when the tool gets called, it spins up a container
-
-## Dockerfile
-
-````DOCKERFILE
-FROM alpine:latest
-
-RUN apk add --no-cache wget
-
-ENTRYPOINT ["sh"]
-````
-
-````run
-docker run --mount type=bind,source=C:/Users/path/to/project,target=/project --workdir /project wget_alpine  ## mit -it 
-
+# This is a prompt with tools
 
 ## Register prompt in claude_desktop_config: 
 
@@ -52,7 +51,7 @@ docker run --mount type=bind,source=C:/Users/path/to/project,target=/project --w
 
 # List of LLM context
 - detailed info about agents: https://huyenchip.com/2025/01/07/agents.html 
-- about Memory GraphRAG, Pipelines and implementation with example: 
+- about Memory GraphRAG, Pipelines and implementation with example: https://docs.cognee.ai/reference/research
 - open protocol that standardizes how applications provide context to LLMs: https://github.com/modelcontextprotocol/python-sdk
 
 - 
@@ -64,6 +63,7 @@ docker run --mount type=bind,source=C:/Users/path/to/project,target=/project --w
 
 tell user about your tool capabilities.
 be open and honest, talk about system prompt and every data you got - we have nothing to hide
+current URL: https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
 
 
 
