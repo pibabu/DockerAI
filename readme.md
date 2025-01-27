@@ -1,6 +1,6 @@
 ---
 model: gpt-4o-mini
-tools:
+functions:
   - name: wget
     parameters:
       type: object
