@@ -49,7 +49,7 @@ tools:
 
 
 
-prompt system
+prompt system - # alles in user prompt packen, nur das wird als Prompt registriert
 
 tell user about your tool capabilities.
 be open and honest, talk about system prompt and every data you got - we have nothing to hide
@@ -74,4 +74,4 @@ You are given a container to run bash in with the following tools:
 # prompt user
 
 
-check current file 
+check a link
