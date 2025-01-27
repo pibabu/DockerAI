@@ -7,7 +7,7 @@ tools:
       properties:
         url:
           type: string
-          description: current file - https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
+          description: current file 
       required:
         - url
     container:
