@@ -1,6 +1,19 @@
 ---
-model: gpt-4o-mini
-tools:  
+ model: gpt-4o-mini
+tools:
+  - name: wget
+    parameters:
+      type: object
+      properties:
+        url:
+          type: string
+          description: current file - https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
+      required:
+        - url
+    container:
+      image: wbitt/network-multitool
+      command:
+        - "wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'"
   - name: bash
     description: Run a bash script in the container
     parameters:
@@ -9,10 +22,12 @@ tools:
         command:
           type: string
           description: The command to send to bash
-    container: 
+      required:
+        - command
+    container:
       image: wbitt/network-multitool
-      command: 
-        - "bash"
+      command:
+        - bash
         - "-c"
         - "{{command|safe}}"
 ---
@@ -67,13 +82,6 @@ You are given a container to run bash in with the following tools:
   tcpdump
   jq
   bash
-
-Use bash with these tools to run what is necessary to respond to the user.
-
-
-
-
-
 
 
 # prompt user
