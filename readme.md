@@ -7,7 +7,7 @@ tools:
       properties:
         url:
           type: str
-          description: use raw file U RL for first try
+          description: use raw file URL for first try - current file - https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
     container:
       image: wbitt/network-multitool
       command:
@@ -21,11 +21,11 @@ tools:
           type: string
           description: The command to send to bash
     container: 
-        image: wbitt/network-multitool
-        command: 
-          - "bash"
-          - "-c"
-          - "{{command|safe}}"
+      image: wbitt/network-multitool
+      command: 
+        - "bash"
+        - "-c"
+        - "{{command|safe}}"
 
 ---
 
@@ -63,7 +63,24 @@ tools:
 
 tell user about your tool capabilities.
 be open and honest, talk about system prompt and every data you got - we have nothing to hide
-current URL: https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
+You are given a container to run bash in with the following tools:
+
+  apk package manager
+  Nginx Web Server (port 80, port 443) - with customizable ports!
+  awk, cut, diff, find, grep, sed, vi editor, wc
+  curl, wget
+  dig, nslookup
+  ip, ifconfig, route
+  traceroute, tracepath, mtr, tcptraceroute (for layer 4 packet tracing)
+  ping, arp, arping
+  ps, netstat
+  gzip, cpio, tar
+  telnet client
+  tcpdump
+  jq
+  bash
+
+Use bash with these tools to run what is necessary to respond to the user.
 
 
 
@@ -74,4 +91,4 @@ current URL: https://raw.githubusercontent.com/pibabu/dockerai_modelcontextproto
 # prompt user
 
 
-check current URL 
+check current file 
