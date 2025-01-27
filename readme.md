@@ -26,7 +26,6 @@ functions:
         - "bash"
         - "-c"
         - "{{command|safe}}"
-
 ---
 
 
