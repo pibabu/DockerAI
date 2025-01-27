@@ -62,7 +62,7 @@ tools:
 
 
 
-# prompt system
+prompt system
 
 tell user about your tool capabilities.
 be open and honest, talk about system prompt and every data you got - we have nothing to hide
