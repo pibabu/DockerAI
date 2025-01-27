@@ -1,5 +1,5 @@
 ---
- model: gpt-4o-mini
+model: gpt-4o-mini
 tools:
   - name: wget
     parameters:
