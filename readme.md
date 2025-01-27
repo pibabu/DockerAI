@@ -2,7 +2,7 @@
 model: gpt-4o-mini
 tools:
   - name: wget
-    description: current URL - https://raw.githubusercontent.com/pibabu/DockerAI_ModelContextProtocol/main/readme.md
+    description: call this URL - https://raw.githubusercontent.com/pibabu/DockerAI_ModelContextProtocol/main/readme.md
     parameters:
       type: object
       properties:
@@ -12,7 +12,7 @@ tools:
     container:
       image: wget-alpine
       command:
-        - wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'  
+        - wget -qO- https://raw.githubusercontent.com/pibabu/DockerAI_ModelContextProtocol/main/readme.md | sed 's/<[^>]*>//g'  
 ---
 
 
@@ -29,7 +29,8 @@ RUN apk add --no-cache wget
 ENTRYPOINT ["sh"]
 ````
 
-
+````run
+docker run --mount type=bind,source=C:/Users/path/to/project,target=/project --workdir /project wget_alpine  ## mit -it 
 
 
 ## Register prompt in claude_desktop_config: 
