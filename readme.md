@@ -1,19 +1,6 @@
 ---
  model: gpt-4o-mini
 tools:
-  - name: wget
-    parameters:
-      type: object
-      properties:
-        url:
-          type: string
-          description: current file 
-      required:
-        - url
-    container:
-      image: wbitt/network-multitool
-      command:
-        - "wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'"
   - name: bash
     description: Run a bash script in the container
     parameters:
