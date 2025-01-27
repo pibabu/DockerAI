@@ -1,6 +1,19 @@
 ---
  model: gpt-4o-mini
 tools:
+  - name: wget
+    parameters:
+      type: object
+      properties:
+        url:
+          type: string
+          description: current file - https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
+      required:
+        - url
+    container:
+      image: wbitt/network-multitool
+      command:
+        - "wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'"
   - name: bash
     description: Run a bash script in the container
     parameters:
