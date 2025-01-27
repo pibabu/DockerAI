@@ -7,7 +7,7 @@ tools:
       properties:
         url:
           type: str
-          description: use raw file URL for first try - current file - https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
+          description: current file - https://raw.githubusercontent.com/pibabu/dockerai_modelcontextprotocol/main/readme.md
     container:
       image: wbitt/network-multitool
       command:
