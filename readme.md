@@ -1,18 +1,20 @@
 ---
 model: gpt-4o-mini
-tools:
-  - name: wget
+tools:  
+  - name: bash
+    description: Run a bash script in the container
     parameters:
       type: object
       properties:
-        url:
-          type: str
-          description: current file 
-    container:
+        command:
+          type: string
+          description: The command to send to bash
+    container: 
       image: wbitt/network-multitool
-      command:
-        - "wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'"   
-  
+      command: 
+        - "bash"
+        - "-c"
+        - "{{command|safe}}"
 ---
 
 
