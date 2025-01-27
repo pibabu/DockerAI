@@ -1,6 +1,6 @@
 ---
 model: gpt-4o-mini
-functions:
+tools:
   - name: wget
     parameters:
       type: object
@@ -12,20 +12,7 @@ functions:
       image: wbitt/network-multitool
       command:
         - "wget -qO- {{url|safe}} | sed 's/<[^>]*>//g'"   
-  - name: bash
-    description: Run a bash script in the container
-    parameters:
-      type: object
-      properties:
-        command:
-          type: string
-          description: The command to send to bash
-    container: 
-      image: wbitt/network-multitool
-      command: 
-        - "bash"
-        - "-c"
-        - "{{command|safe}}"
+  
 ---
 
 
